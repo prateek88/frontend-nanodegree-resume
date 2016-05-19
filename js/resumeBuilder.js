@@ -83,3 +83,42 @@ var education = {
     }
     ]
 };
+
+var formattedHeaderName = HTMLheaderName.replace( "%data%", "Prateek Goyal");
+$("#header").append(formattedHeaderName);
+
+if ( bio.skills.lenght !== 0 ){
+	$("#header").append(HTMLskillsStart);
+}
+
+var formattedHTMLSkills = HTMLskills.replace("%data%", bio.skills[0]);
+$("#skills").append(formattedHTMLSkills);
+
+formattedHTMLSkills = HTMLskills.replace("%data%", bio.skills[1]);
+$("#skills").append(formattedHTMLSkills);
+
+formattedHTMLSkills = HTMLskills.replace("%data%", bio.skills[2]);
+$("#skills").append(formattedHTMLSkills);
+
+formattedHTMLSkills = HTMLskills.replace("%data%", bio.skills[3]);
+$("#skills").append(formattedHTMLSkills);
+
+function displayWork(){
+	$("#workExperience").append(HTMLworkStart);
+
+	for ( job in work.jobs ){
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].Dates);
+		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].Description);
+		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+		$(".work-entry:last").append(formattedEmployerTitle);
+		$(".work-entry:last").append(formattedLocation);
+		$(".work-entry:last").append(formattedDates);
+		$(".work-entry:last").append(formattedDescription);
+	
+	}
+}
+
+displayWork();
