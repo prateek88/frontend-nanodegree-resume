@@ -1,24 +1,85 @@
-//Code started on 10 may 2016
-/*
-var firstName = "Prateek";
-var age = 28;
+var work = {
+    "jobs" : [
+    {
+        "employer": "CSS corp",
+        "title": "Senior Test analyst",
+        "location": "Bangalore",
+        "Dates": "2015-16",
+        "Description": "Automating Test cases with Perl and Selenium"
+    },
+    {
+        "employer": "TCS",
+        "title": "Test analyst",
+        "location": "Bangalore",
+        "Dates": "2011-15",
+        "Description": "Creating and executing manual testcases"
+    }]
+};
 
-console.log(firstName);
+var projects = {
+    "projects" : [
+    {
+        "title": "CPE QA",
+        "dates" : "2012-15",
+        "Description" : "Working for continuosly improve the product",
+        "images" : []
+    },
+    {
+        "title": "QA Automation",
+        "dates" : "2015-16",
+        "Description" : "Automating testcases for SSL VPN product",
+        "images" : []
+    }]
+};
 
-var awesomeThoughts = "I am Prateek and I am AWESOME";
-$("#main").append(funThoughts);
+var bio = {
+    "name" : "Prateek Goyal",
+    "role" : "Student",
+    "welcomeMessage" : "Explore the Unexpected here!",
+    "contacts" : {
+        "mobile" : "+91-7795607648",
+        "email" : "prateek.goyal5@gmail.com",
+        "github" : "prateek88",
+        "twitter" : "@pratq",
+        "location" : "Bangalore"
+    },
+    "skills" : ["Perl", "Selenium", "Javascript", "HTML", "CSS"]
+};
 
-var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-//console.log(funThoughts);
-$("#main").append(funThoughts);
-*/
+var education = {
+    "schools" : [
+    {
+        "name" : "Govt Inter College",
+        "location" : "Dehradun",
+        "Degree" : "Intermediate",
+        "Majors" : "Science",
+        "Dates" : "2005",
+        "url" : ""
+    },
+    {
+        "name" : "Pantnagar University",
+        "location" : "Pantnagar",
+        "Degree" : "B.Tech",
+        "Majors" : "Computer Engineering",
+        "Dates" : "2011",
+        "url" : "www.gbpuat.ac.in"
+    }],
 
-var name = "Prateek Goyal";
-
-var role = "Web Developer";
-
-var formattedName = HTMLheaderName.replace("%data%", name );
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+    "onlineCourse" : [
+    {
+        "title" : "Intro to HTML and CSS",
+        "school" : "Udacity",
+        "dates" : "2016"
+    },
+    {
+        "title" : "Git and Github",
+        "school" : "Udacity",
+        "dates" : "2016"
+    },
+    {
+        "title" : "Responsive Images",
+        "school" : "Udacity",
+        "dates" : "2016"
+    }
+    ]
+};
