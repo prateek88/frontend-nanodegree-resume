@@ -3,14 +3,14 @@ var work = {
     {
         "employer": "CSS corp",
         "title": "Senior Test analyst",
-        "location": "Bangalore",
+        "location": "Bangalore, India",
         "Dates": "2015-16",
         "Description": "Automating Test cases with Perl and Selenium"
     },
     {
         "employer": "TCS",
         "title": "Test analyst",
-        "location": "Bangalore",
+        "location": "Lucknow, India",
         "Dates": "2011-15",
         "Description": "Creating and executing manual testcases"
     }]
@@ -21,14 +21,14 @@ var projects = {
     {
         "title": "CPE QA",
         "dates" : "2012-15",
-        "Description" : "Working for continuosly improve the product",
-        "images" : []
+        "Description" : "Working for continuosly improve the product and quality assurance",
+        "images" : ["images/NetApp.jpg"]
     },
     {
         "title": "QA Automation",
         "dates" : "2015-16",
-        "Description" : "Automating testcases for SSL VPN product",
-        "images" : []
+        "Description" : "Automating testcases for SSL VPN product using Perl and Selenium",
+        "images" : ["images/share.jpg"]
     }]
 };
 
@@ -104,9 +104,9 @@ formattedHTMLSkills = HTMLskills.replace("%data%", bio.skills[3]);
 $("#skills").append(formattedHTMLSkills);
 
 function displayWork(){
-	$("#workExperience").append(HTMLworkStart);
 
 	for ( job in work.jobs ){
+        $("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
@@ -117,8 +117,53 @@ function displayWork(){
 		$(".work-entry:last").append(formattedLocation);
 		$(".work-entry:last").append(formattedDates);
 		$(".work-entry:last").append(formattedDescription);
-
 	}
 }
 
+//we don't have to use any parameter in this function, because this function is using an object that's in the global scope for the script, meaning it's accessible to the function which is also in the global scope.
 displayWork();
+
+/*$(document).click() is a jQuery event handler on the page, which is a fancy way of saying that it will hold some code that runs every time a user clicks on the page.
+
+The function (that doesn't have a name, making it an anonymous function) that gets passed into .click() will be run every time a user clicks on the page.
+
+loc is a jQuery event object.loc is a jQuery event object that contains information about the click event.
+*/
+$(document).click(function(location) {
+    logClicks(location.pageX, location.pageY); //logClicks is defined in helper.js
+});
+
+$("#main").append(internationalizeButton);
+
+function inName(){
+    var myName = bio.name;
+    var fullName = myName.split(" ");
+    var firstName = fullName[0];
+    var lastName = fullName[1];
+
+    firstName = firstName.charAt(0).toUpperCase() + firstName.slice("1").toLowerCase();
+    lastName = lastName.toUpperCase();
+
+    fullName = firstName + " " + lastName;
+
+    return fullName;
+}
+
+projects.display = function(){
+    for (project in projects.projects){
+        $("#projects").append(HTMLprojectStart);
+        var title = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        var dates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        var Description = HTMLprojectDescription.replace("%data%", projects.projects[project].Description);
+        var images = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+
+        $(".project-entry:last").append(title);
+        $(".project-entry:last").append(dates);
+        $(".project-entry:last").append(Description);
+        $(".project-entry:last").append(images);
+    }
+}();   //anonymous function call
+
+//projects.display();
+
+$("#mapDiv").append(googleMap);
